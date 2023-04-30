@@ -59,6 +59,12 @@
             }
             return possibleStates;
         }
+        public static void PrintList<T>(List<T> list)
+        {
 
+            foreach (var l in list)
+                Console.WriteLine(l);
+
+        }
     }
 }

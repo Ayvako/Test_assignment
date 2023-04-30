@@ -5,7 +5,8 @@ namespace Hedgehog_test.src
     public static class Processor
     {
         private static readonly IComparer<State> WeightComparer = Comparer<State>.Create((s1, s2) => s1.Weight.CompareTo(s2.Weight));
-
+        public static List<State> Way { get; set; }
+        public static int Steps { get; set; }
 
         public static int Start(int[] startArr, int color)
         {
@@ -18,7 +19,6 @@ namespace Hedgehog_test.src
             if ((startArr.Sum() - startArr[color]) % 2 == 1)
                 return -1;
 
-            int steps = 0;
 
             State startState = new(startArr);
             State endState = new(endArr);
@@ -28,18 +28,17 @@ namespace Hedgehog_test.src
 
 
             List<State> possibleStates;
-            List<State> way = new();
             opens.Add(startState);
             while (opens.Count != 0)
             {
-                steps++;
+                Steps++;
                 State currentState = opens[0];
                 opens.RemoveAt(0);
 
                 if (currentState.Equals(endState))
                 {
-                    way = Methods.GetRightWay(currentState);
-                    way.Insert(0, startState);
+                    Way = Methods.GetRightWay(currentState);
+                    Way.Insert(0, startState);
                     break;
                 }
 
@@ -55,7 +54,7 @@ namespace Hedgehog_test.src
                 opens.Sort(WeightComparer);
 
             }
-            return way.Count == 0 ? -1 : way.Count - 1;
+            return Way.Count == 0 ? -1 : Way.Count - 1;
         }
 
     }

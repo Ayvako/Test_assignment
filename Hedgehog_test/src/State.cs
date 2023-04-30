@@ -25,7 +25,7 @@
         }
         public override string ToString()
         {
-            return $"({string.Join(", ", Field)})";
+            return $"[Red: {Field[0]}, Green: {Field[1]}, Blue: {Field[2]}]";
         }
         public override bool Equals(object obj)
         {
