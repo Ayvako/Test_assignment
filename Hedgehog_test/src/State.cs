@@ -6,12 +6,12 @@
         public int Weight { get; private set; }
         public State? Parent { get; private set; }
         public static int[] End { get; set; }
+		
         public State(int[] field, State parent)
         {
             Field = field;
             Parent = parent;
             Weight = CalcWeight();
-
         }
         public State(int[] field)
         {
@@ -33,11 +33,8 @@
             {
                 return false;
             }
-
             State other = (State)obj;
             return Field.SequenceEqual(other.Field);
         }
-
     }
-
 }

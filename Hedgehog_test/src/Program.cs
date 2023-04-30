@@ -4,12 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Run(new int[] { 20, 71, 55 }, 0));
+            int[] arr = new int[] { 20, 71, 71 };
+            int color = 0;
+
+            Console.WriteLine(Processor.Start(arr, color));
         }
 
-        private static int Run(int[] arr, int color)
-        {
-            return new Processor(arr, color).Start();
-        }
     }
 }

@@ -2,33 +2,26 @@
 
 namespace Hedgehog_test.src
 {
-    public class Processor
+    public static class Processor
     {
-        private readonly int[] StartArr;
-        private readonly int[] EndArr;
-        private int Color { get; set; }
-        private readonly IComparer<State> WeightComparer = Comparer<State>.Create((s1, s2) => s1.Weight.CompareTo(s2.Weight));
+        private static readonly IComparer<State> WeightComparer = Comparer<State>.Create((s1, s2) => s1.Weight.CompareTo(s2.Weight));
 
-        public Processor(int[] arr, int color)
+
+        public static int Start(int[] startArr, int color)
         {
             int[] endArr = new int[] { 0, 0, 0 };
-            endArr[color] = arr.Sum();
+            endArr[color] = startArr.Sum();
             State.End = endArr;
-            StartArr = arr;
-            EndArr = endArr;
-            Color = color;
-        }
 
-        public int Start()
-        {
 
-            if ((StartArr.Sum() - StartArr[Color]) % 2 == 1)
+
+            if ((startArr.Sum() - startArr[color]) % 2 == 1)
                 return -1;
 
             int steps = 0;
 
-            State startState = new(StartArr);
-            State endState = new(EndArr);
+            State startState = new(startArr);
+            State endState = new(endArr);
 
             List<State> opens = new();
             List<State> closed = new();
