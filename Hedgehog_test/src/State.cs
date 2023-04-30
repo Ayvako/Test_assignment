@@ -54,5 +54,12 @@
             throw new NotImplementedException();
         }
 
+        public static int[] CalcEndState(int[] startState, int color)
+        {
+            int[] endArr = new int[] { 0, 0, 0 };
+            endArr[color] = startState.Sum();
+            return endArr;
+        }
+
     }
 }

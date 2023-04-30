@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
 
-            int[] arr = new int[] { 20, 55, 0 };
+            int[] arr = new int[] { 0, -5, 10 };
             int color = 0;
 
             Run(arr, color);

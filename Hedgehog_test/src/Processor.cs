@@ -8,10 +8,20 @@
 
         public static int Start(int[] startArr, int color)
         {
+
+            if (!ArrIsCorrect(startArr))
+                throw new ArgumentException($"The starting array({string.Join(", ", startArr)}) must consist of positive numbers whose sum is greater than zero.");
+
+            if ((color>2||color<0))
+                throw new ArgumentException($"The color({color}) must be integer value in range [0; 2].");
+
+
             if ((startArr.Sum() - startArr[color]) % 2 == 1)
                 return -1;
+            
 
-            State.SetStartEnd(startArr, CalcEndState(startArr,color));
+
+            State.SetStartEnd(startArr, State.CalcEndState(startArr,color));
 
             State start = new (State.StartState);
             State end = new (State.EndState);
@@ -50,13 +60,21 @@
             return Way.Count == 0 ? -1 : Way.Count - 1;
         }
 
-        private static int[] CalcEndState(int[] startState, int color)
-        {
-            int[] endArr = new int[] { 0, 0, 0 };
-            endArr[color] = startState.Sum();
-            return endArr;
-        }
 
+        private static bool ArrIsCorrect(int[] startArr)
+        {
+
+            foreach (int i in startArr)
+            {
+                if (i < 0)
+                {
+                    return false;
+                }
+            }
+
+            return startArr.Sum() > 0;
+
+        }
 
     }
 }

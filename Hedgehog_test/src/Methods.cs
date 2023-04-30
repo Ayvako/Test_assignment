@@ -63,7 +63,6 @@
             return possibleStates;
         }
 
-
         public static void PrintList<T>(List<T> list)
         {
 
@@ -72,5 +71,7 @@
 
         }
 
+    
     }
+
 }
