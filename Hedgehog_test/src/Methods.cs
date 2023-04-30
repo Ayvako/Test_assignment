@@ -2,6 +2,7 @@
 {
     public class Methods
     {
+
         public static List<State> GetRightWay(State currentState)
         {
             List<State> rightPath = new();
@@ -13,6 +14,7 @@
             rightPath.Reverse();
             return rightPath;
         }
+
         public static List<State> AddPossibleStates(State state)
         {
             List<State> possibleStates = new();
@@ -51,6 +53,7 @@
 
             return possibleStates;
         }
+
         public static List<State> RemoveDuplicates(List<State> possibleStates, List<State> states)
         {
             foreach (State state in states)
@@ -59,6 +62,8 @@
             }
             return possibleStates;
         }
+
+
         public static void PrintList<T>(List<T> list)
         {
 
@@ -66,5 +71,6 @@
                 Console.WriteLine(l);
 
         }
+
     }
 }

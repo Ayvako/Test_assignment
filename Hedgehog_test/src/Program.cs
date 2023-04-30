@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
 
-            int[] arr = new int[] { 20, 71, 0 };
+            int[] arr = new int[] { 20, 55, 0 };
             int color = 0;
 
             Run(arr, color);
@@ -25,11 +25,6 @@
                 Methods.PrintList(Processor.Way);
 
             }
-
-
-
-
         }
-
     }
 }
